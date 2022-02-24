@@ -1,0 +1,61 @@
+[
+{"id":0,"id_tag":"1-dnir","tag":"Calculo Integral","Descripcion":"Calculo pero integral","relacion":"matematicas"},
+{"id":0,"id_tag":"1-bnir","tag":"Calculo Diferencial","Descripcion":"Calculo pero Diferencial","relacion":"matematicas"},
+{"id":0,"id_tag":"1-pnir","tag":"Probabilidad","Descripcion":"Calculo pero integral","relacion":"matematicas"},
+{"id":0,"id_tag":"1-gnir","tag":"Equaciones Diferenciales","Descripcion":"Calculo pero integral","relacion":"matematicas"},
+
+{"id":0,"id_tag":"2-dnir","tag":"Ortografia","Descripcion":"Calculo pero integral","relacion":"espanol"},
+{"id":0,"id_tag":"2-bnir","tag":"Literatura hispana","Descripcion":"Calculo pero Diferencial","relacion":"espanol"},
+{"id":0,"id_tag":"2-pnir","tag":"Gramatica","Descripcion":"Calculo pero integral","relacion":"espanol"},
+{"id":0,"id_tag":"2-gnir","tag":"Redaccion de documetos","Descripcion":"Calculo pero integral","relacion":"espanol"},
+
+{"id":0,"id_tag":"3-dnir","tag":"Ingles","Descripcion":"Calculo pero integral","relacion":"idiomas"},
+{"id":0,"id_tag":"3-bnir","tag":"Italiano","Descripcion":"Calculo pero Diferencial","relacion":"idiomas"},
+{"id":0,"id_tag":"3-pnir","tag":"Chino","Descripcion":"Calculo pero integral","relacion":"idiomas"},
+{"id":0,"id_tag":"3-gnir","tag":"Aleman","Descripcion":"Calculo pero integral","relacion":"idiomas"},
+
+{"id":0,"id_tag":"4-dnir","tag":"Historia Universal","Descripcion":"Calculo pero integral","relacion":"historia"},
+{"id":0,"id_tag":"4-bnir","tag":"Mexico Prehispanico","Descripcion":"Calculo pero Diferencial","relacion":"historia"},
+{"id":0,"id_tag":"4-pnir","tag":"Mexico Colonial","Descripcion":"Calculo pero integral","relacion":"historia"},
+{"id":0,"id_tag":"4-gnir","tag":"Mexico Moderno","Descripcion":"Calculo pero integral","relacion":"historia"},
+
+{"id":0,"id_tag":"5-dnir","tag":"Topologia","Descripcion":"Calculo pero integral","relacion":"geografia"},
+{"id":0,"id_tag":"5-bnir","tag":"Division Politica","Descripcion":"Calculo pero Diferencial","relacion":"geografia"},
+{"id":0,"id_tag":"5-pnir","tag":"Mineria","Descripcion":"Calculo pero integral","relacion":"geografia"},
+{"id":0,"id_tag":"5-gnir","tag":"Ganaderia","Descripcion":"Calculo pero integral","relacion":"geografia"},
+
+{"id":0,"id_tag":"6-dnir","tag":"Quimica organica","Descripcion":"Calculo pero integral","relacion":"quimica"},
+{"id":0,"id_tag":"6-bnir","tag":"Quimica Inorganica","Descripcion":"Calculo pero Diferencial","relacion":"quimica"},
+{"id":0,"id_tag":"6-pnir","tag":"Nomenclatura Quimica","Descripcion":"Calculo pero integral","relacion":"quimica"},
+{"id":0,"id_tag":"6-gnir","tag":"Procesos Quimicos","Descripcion":"Calculo pero integral","relacion":"quimica"},
+
+{"id":0,"id_tag":"7-dnir","tag":"Ecosisteas","Descripcion":"Calculo pero integral","relacion":"biologia"},
+{"id":0,"id_tag":"7-bnir","tag":"Botanica","Descripcion":"Calculo pero Diferencial","relacion":"biologia"},
+{"id":0,"id_tag":"7-pnir","tag":"Zoologia","Descripcion":"Calculo pero integral","relacion":"biologia"},
+{"id":0,"id_tag":"7-gnir","tag":"Estequiometria","Descripcion":"Calculo pero integral","relacion":"biologia"},
+
+{"id":0,"id_tag":"8-dnir","tag":"Mecanica","Descripcion":"Calculo pero integral","relacion":"fisica"},
+{"id":0,"id_tag":"8-bnir","tag":"Optica","Descripcion":"Calculo pero Diferencial","relacion":"fisica"},
+{"id":0,"id_tag":"8-pnir","tag":"Oscilaciones","Descripcion":"Calculo pero integral","relacion":"fisica"},
+{"id":0,"id_tag":"8-gnir","tag":"Termodinamica","Descripcion":"Calculo pero integral","relacion":"fisica"},
+
+{"id":0,"id_tag":"9-dnir","tag":"Programacion","Descripcion":"Calculo pero integral","relacion":"tecnologia"},
+{"id":0,"id_tag":"9-bnir","tag":"Computacion","Descripcion":"Calculo pero Diferencial","relacion":"tecnologia"},
+{"id":0,"id_tag":"9-pnir","tag":"Electronica","Descripcion":"Calculo pero integral","relacion":"tecnologia"},
+{"id":0,"id_tag":"9-gnir","tag":"Robotica","Descripcion":"Calculo pero integral","relacion":"tecnologia"},
+
+{"id":0,"id_tag":"10-dnir","tag":"Artes plasticas","Descripcion":"Calculo pero integral","relacion":"arte"},
+{"id":0,"id_tag":"10-bnir","tag":"Artes escenicas","Descripcion":"Calculo pero Diferencial","relacion":"arte"},
+{"id":0,"id_tag":"10-pnir","tag":"Cine","Descripcion":"Calculo pero integral","relacion":"arte"},
+{"id":0,"id_tag":"10-gnir","tag":"Danza","Descripcion":"Calculo pero integral","relacion":"arte"},
+
+{"id":0,"id_tag":"11-dnir","tag":"Vidrieria","Descripcion":"Calculo pero integral","relacion":"oficios"},
+{"id":0,"id_tag":"11-bnir","tag":"Construccion","Descripcion":"Calculo pero Diferencial","relacion":"oficios"},
+{"id":0,"id_tag":"11-pnir","tag":"Arquitectura","Descripcion":"Calculo pero integral","relacion":"oficios"},
+{"id":0,"id_tag":"11-gnir","tag":"Medicina","Descripcion":"Calculo pero integral","relacion":"oficios"},
+
+{"id":0,"id_tag":"12-dnir","tag":"Posgrado","Descripcion":"Calculo pero integral","relacion":"superior"},
+{"id":0,"id_tag":"12-bnir","tag":"Especialidad","Descripcion":"Calculo pero Diferencial","relacion":"superior"},
+{"id":0,"id_tag":"12-pnir","tag":"Maestria","Descripcion":"Calculo pero integral","relacion":"superior"},
+{"id":0,"id_tag":"12-gnir","tag":"Doctorado","Descripcion":"Calculo pero integral","relacion":"superior"}
+]

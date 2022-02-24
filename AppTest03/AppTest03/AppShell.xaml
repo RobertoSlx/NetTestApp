@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:AppTest03.Views"
+       xmlns:Login="clr-namespace:AppTest03.Views.Login"
+       xmlns:Preferences="clr-namespace:AppTest03.Views.Preferences"
+       Title="AppTest03"
+       x:Class="AppTest03.AppShell">
+
+	<Shell.Resources>
+		<ResourceDictionary>
+			<Style x:Key="BaseStyle" TargetType="Element">
+				<Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
+				<Setter Property="Shell.ForegroundColor" Value="White" />
+				<Setter Property="Shell.TitleColor" Value="White" />
+				<Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+				<Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+				<Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
+				<Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+				<Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+				<Setter Property="Shell.TabBarTitleColor" Value="White"/>
+			</Style>
+			<Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+			<Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+
+			<Style Class="FlyoutItemLabelStyle" TargetType="Label">
+				<Setter Property="TextColor" Value="White"></Setter>
+			</Style>
+			<Style Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+				<Setter Property="VisualStateManager.VisualStateGroups">
+					<VisualStateGroupList>
+						<VisualStateGroup x:Name="CommonStates">
+							<VisualState x:Name="Normal">
+								<VisualState.Setters>
+									<Setter Property="BackgroundColor" Value="{x:OnPlatform UWP=Transparent, iOS=White}" />
+									<Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+								</VisualState.Setters>
+							</VisualState>
+							<VisualState x:Name="Selected">
+								<VisualState.Setters>
+									<Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+								</VisualState.Setters>
+							</VisualState>
+						</VisualStateGroup>
+					</VisualStateGroupList>
+				</Setter>
+			</Style>
+
+
+			<Style Class="PostDetail" TargetType="Layout" ApplyToDerivedTypes="True">
+			<Setter Property="VisualStateManager.VisualStateGroups">
+				<VisualStateGroupList>
+					<VisualStateGroup x:Name="CommonStates">
+						<VisualState x:Name="Normal">
+							<VisualState.Setters>
+								<Setter Property="BackgroundColor" Value="{x:OnPlatform UWP=Transparent, iOS=White}" />
+								<Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+							</VisualState.Setters>
+						</VisualState>
+						<VisualState x:Name="Selected">
+							<VisualState.Setters>
+								<Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+							</VisualState.Setters>
+						</VisualState>
+					</VisualStateGroup>
+				</VisualStateGroupList>
+			</Setter>
+			</Style>
+
+			<Style Class="ProfilePage" TargetType="Layout" ApplyToDerivedTypes="True">
+				<Setter Property="VisualStateManager.VisualStateGroups">
+					<VisualStateGroupList>
+						<VisualStateGroup x:Name="CommonStates">
+							<VisualState x:Name="Normal">
+								<VisualState.Setters>
+									<Setter Property="BackgroundColor" Value="{x:OnPlatform UWP=Transparent, iOS=White}" />
+									<Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+								</VisualState.Setters>
+							</VisualState>
+							<VisualState x:Name="Selected">
+								<VisualState.Setters>
+									<Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+								</VisualState.Setters>
+							</VisualState>
+						</VisualStateGroup>
+					</VisualStateGroupList>
+				</Setter>
+			</Style>
+
+			<!--
+            Custom Style you can apply to any Flyout Item
+            -->
+			<Style Class="MenuItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+				<Setter Property="VisualStateManager.VisualStateGroups">
+					<VisualStateGroupList>
+						<VisualStateGroup x:Name="CommonStates">
+							<VisualState x:Name="Normal">
+								<VisualState.Setters>
+									<Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+								</VisualState.Setters>
+							</VisualState>
+						</VisualStateGroup>
+					</VisualStateGroupList>
+				</Setter>
+			</Style>
+		</ResourceDictionary>
+	</Shell.Resources>
+
+	<ShellItem Route="LoginPage" FlyoutItemIsVisible="False">
+        <ShellContent ContentTemplate="{DataTemplate local:LoginPage}"/>
+    </ShellItem>
+
+    <ShellItem Route="MainPage" FlyoutItemIsVisible="False">
+        <ShellContent ContentTemplate="{DataTemplate local:MainPage}"/>
+    </ShellItem>
+
+    <ShellItem Route="LoginEmailPage" FlyoutItemIsVisible="False">
+        <ShellContent ContentTemplate="{DataTemplate Login:LoginEmailPage}"/>
+    </ShellItem>
+
+	<ShellItem Route="LoginFacebookPage" FlyoutItemIsVisible="False">
+		<ShellContent ContentTemplate="{DataTemplate Login:LoginFacebookPage}"/>
+	</ShellItem>
+
+	<ShellItem Route="LoginRegisterPage" FlyoutItemIsVisible="False">
+		<ShellContent ContentTemplate="{DataTemplate Login:LoginRegisterPage}"/>
+	</ShellItem>
+	
+	<ShellItem Route="PrefInterestPage" FlyoutItemIsVisible="False">
+        <ShellContent ContentTemplate="{DataTemplate Preferences:PrefInterestPage}"/>
+    </ShellItem>
+	
+    <ShellItem Route="PrefNamePage" FlyoutItemIsVisible="False">
+        <ShellContent ContentTemplate="{DataTemplate Preferences:PrefNamePage}"/>
+    </ShellItem>
+	
+    <ShellItem Route="PrefLearnPage" FlyoutItemIsVisible="False">
+        <ShellContent ContentTemplate="{DataTemplate Preferences:PrefLearnPage}"/>
+    </ShellItem>
+
+	<ShellItem Route="PrefTeachPage" FlyoutItemIsVisible="False">
+		<ShellContent ContentTemplate="{DataTemplate Preferences:PrefTeachPage}"/>
+	</ShellItem>
+
+	<ShellItem Route="UserProfilePage" FlyoutItemIsVisible="False">
+		<ShellContent ContentTemplate="{DataTemplate Preferences:UserProfilePage}"/>
+	</ShellItem>
+
+	<ShellItem Route="PrefTagsPage" FlyoutItemIsVisible="False">
+		<ShellContent Route="PrefTagsPage" ContentTemplate="{DataTemplate Preferences:PrefTagsPage}" />
+	</ShellItem>
+
+	<ShellItem Route="QuestionDetailPage" FlyoutItemIsVisible="False">
+		<ShellContent Route="QuestionDetailPage" ContentTemplate="{DataTemplate local:QuestionDetailPage}" />
+	</ShellItem>
+	<ShellItem Route="QuestionNewPage" FlyoutItemIsVisible="False">
+		<ShellContent Route="QuestionNewPage" ContentTemplate="{DataTemplate local:QuestionNewPage}" />
+	</ShellItem>
+	<ShellItem Route="ResponseNewPage" FlyoutItemIsVisible="False">
+		<ShellContent Route="ResponseNewPage" ContentTemplate="{DataTemplate local:ResponseNewPage}" />
+	</ShellItem>
+
+	<FlyoutItem Title="UserProfilePage" Icon="ProfilePic.png">
+		<ShellContent Route="LoginPage" ContentTemplate="{DataTemplate Preferences:UserProfilePage}" />
+	</FlyoutItem>
+	<FlyoutItem Title="Solicitudes" Icon="Inbox.jpg">
+		<ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+	</FlyoutItem>
+	<FlyoutItem Title="Respuesta" Icon="Response.png">
+		<ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+	</FlyoutItem>
+	<FlyoutItem Title="Tu Puntaje" Icon="Ladder.jpg">
+		<ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+	</FlyoutItem>
+	<FlyoutItem Title="Sin Respuesta" Icon="Question.jpg">
+		<ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+	</FlyoutItem>
+	<FlyoutItem Title="Tags" Icon="TagImg.png">
+		<ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+	</FlyoutItem>
+	<FlyoutItem Title="Asesores" Icon="tree.jpg">
+		<ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+	</FlyoutItem>
+
+	<MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
+	</MenuItem>
+
+	<TabBar>
+		<ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+	</TabBar>
+
+</Shell>

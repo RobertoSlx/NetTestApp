@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTest03.Views.QuestionDetailPage"
+			 xmlns:vm="clr-namespace:AppTest03.ViewModels"
+			 xmlns:model="clr-namespace:AppTest03.Models">
+
+	<ContentPage.BindingContext>
+		<vm:QuestionDetailPage_VM />
+	</ContentPage.BindingContext>
+
+	<ContentPage.Content>
+		<StackLayout FlexLayout.AlignSelf="Center">
+
+			<StackLayout>
+				<Grid BackgroundColor="LightGreen" HeightRequest="50">
+
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width=".3*"/>
+						<ColumnDefinition Width=".7*"/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="50"/>
+					</Grid.RowDefinitions>
+					
+					<Image	Grid.Column="0" Source="{Binding ImaPerf}"/>
+
+					<Label	Grid.Column="1" Text="{Binding PubName}" 
+								FontSize="Title" 
+								VerticalOptions="CenterAndExpand" 
+								HorizontalOptions="Start"/>
+				</Grid>
+			</StackLayout>
+
+			<StackLayout>
+				<Label Text="{Binding Titulo}" FontSize="Large" 
+					   LineBreakMode="WordWrap" TextColor="Blue"
+					   HeightRequest="220" HorizontalTextAlignment="Start"
+					   Padding="20 ,0"/>
+				<Label Text="{Binding Cuerpo}" FontSize="Medium" 
+					   LineBreakMode="WordWrap" FlexLayout.AlignSelf="Auto"/>
+			</StackLayout>
+			
+			<ScrollView HeightRequest="3000">
+				<RefreshView x:DataType="vm:QuestionDetailPage_VM"
+						 Command="{Binding LoadItemsCommand}"
+						 IsRefreshing="{Binding IsBusy,Mode=TwoWay}">
+
+					<CollectionView ItemsSource="{Binding Responses}"
+								VerticalOptions="FillAndExpand">
+
+						<CollectionView.ItemTemplate>
+							<DataTemplate>
+								<StackLayout Padding="5" x:DataType="model:ResList" >
+									<Frame Padding="5" CornerRadius="5"
+									   IsClippedToBounds="True"
+									   BorderColor="{Binding status}">
+
+										<Grid HeightRequest="150">
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width=".3*"/>
+												<ColumnDefinition Width=".7*"/>
+											</Grid.ColumnDefinitions>
+											<Grid.RowDefinitions>
+												<RowDefinition Height=".6*"/>
+												<RowDefinition Height=".3*"/>
+												<RowDefinition Height=".1*"/>
+											</Grid.RowDefinitions>
+
+											<Image Grid.Column="0" Grid.Row="0" Source="{Binding Imagen}"
+												   FlexLayout.AlignSelf="Stretch"/>
+											<Label	Grid.Column="0" Grid.Row="1" Text="{Binding Name}"
+												LineBreakMode="WordWrap" FontSize="Small"
+													VerticalOptions="Center" HorizontalOptions="Center"/>
+											<Label	Grid.Column="0" Grid.Row="2" Text="{Binding fecha}"
+												LineBreakMode="WordWrap" FontSize="Micro"/>
+											<Label Grid.Column="1" Grid.Row="0" Grid.RowSpan="3"
+												   LineBreakMode="WordWrap" FontSize="Small" 
+												   Text="{Binding cuerpo}"/>
+										</Grid>
+									</Frame>
+								</StackLayout>
+							</DataTemplate>
+						</CollectionView.ItemTemplate>
+					</CollectionView>
+				</RefreshView>
+			</ScrollView>
+			
+			<StackLayout Orientation="Horizontal" VerticalOptions="End">
+				<Button CornerRadius="3" TextColor="White" Text="Responder" 
+						BackgroundColor="DarkGreen" Command="{Binding NuevaRespuesta}"
+						VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"
+					Padding="20,0"/>
+			</StackLayout>
+			
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

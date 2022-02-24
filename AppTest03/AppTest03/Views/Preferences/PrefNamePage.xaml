@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTest03.Views.Preferences.PrefNamePage"
+             xmlns:vm="clr-namespace:AppTest03.ViewModels" 
+             xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+			 Shell.NavBarIsVisible="False">
+
+    <ContentPage.BindingContext>
+        <vm:PrefNamePage_VM/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ScrollView HeightRequest="3000">
+            <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+				<Image Source="{Binding P_foto}" x:Name="image" HeightRequest="200">
+					<Image.GestureRecognizers>
+						<!--<TapGestureRecognizer Command="{Binding TapPhoto}"/>-->
+						<!--<TapGestureRecognizer x:Name="P_foto" Tapped="P_foto_Tapped"/>-->
+						<TapGestureRecognizer x:Name="P_foto" Tapped="P_foto_Tapped"/>
+					</Image.GestureRecognizers>
+				</Image>
+				<Label Text="Iniciemos tu cuenta" FontSize="Medium"/>
+				<Label Text="{Binding IdOnGui}" FontSize="Medium"/>
+                <Label Text="Nombre de usuario"/>
+                <Entry Text="{Binding Name, Mode=TwoWay}" Keyboard="Default" Placeholder="Nombre de Usuario"/>
+                <Label Text="Fecha de nacimiento"/>
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="60"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="50"/>
+						<ColumnDefinition Width="50"/>
+						<ColumnDefinition Width="100"/>
+					</Grid.ColumnDefinitions>
+					<Picker Grid.Column="0" Title="Dia" ItemsSource="{Binding Day}" ItemDisplayBinding="{Binding ValueD}" SelectedItem="{Binding selectDay}"/>
+					<Picker Grid.Column="1" Title="Mes" ItemsSource="{Binding Month}" ItemDisplayBinding="{Binding ValueM}" SelectedItem="{Binding SelectMonth}"/>
+					<Picker Grid.Column="2" Title="Año" ItemsSource="{Binding Year}" ItemDisplayBinding="{Binding ValueY}" SelectedItem="{Binding SelectYear}"/>
+				</Grid>
+				<!-- <DatePicker Date="{Binding Bday}" VerticalOptions="CenterAndExpand">
+					<DatePicker.Format>yyyy-MM-dd</DatePicker.Format>
+				</DatePicker>
+				-->
+                <Label Text="Ocupacion "/>
+                <Entry Text="{Binding Ocupation, Mode=TwoWay}" Keyboard="Default" Placeholder="A que te dedicas"/>
+                <Label Text="Presentacion"/>
+                <Editor Placeholder="Dinos algo sobre ti" Text="{Binding Presentation}"/>
+                <Label Text="Selecciona 3 habilidades que te identifiquen"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
+                        <RowDefinition Height="60"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+						<ColumnDefinition Width="Auto"/>
+					</Grid.ColumnDefinitions>
+
+                    <Button Grid.Row="0" Grid.Column="0" CornerRadius="5" TextColor="White" 
+                            Text="Atencion &#x0a; Enfocada" BackgroundColor="{Binding ColorButton0,Mode=TwoWay}"
+                            Command="{Binding SkillPress_0}" FontSize="Small"/>
+                    <Button Grid.Row="0" Grid.Column="1" CornerRadius="5" TextColor="White" 
+                            Text="Buena &#x0a; Memoria" BackgroundColor="{Binding ColorButton1,Mode=TwoWay}"
+                            Command="{Binding SkillPress_1}"/>
+                    <Button Grid.Row="1" Grid.Column="0" CornerRadius="5" TextColor="White" 
+                            Text="Capacidad de &#x0a; Procesamiento" BackgroundColor="{Binding ColorButton2,Mode=TwoWay}"
+                            Command="{Binding SkillPress_2}"/>
+                    <Button Grid.Row="1" Grid.Column="1" CornerRadius="5" TextColor="White" 
+                            Text="Capacidad de &#x0a; Analisis" BackgroundColor="{Binding ColorButton3,Mode=TwoWay}"
+                            Command="{Binding SkillPress_3}"/>
+                    <Button Grid.Row="2" Grid.Column="0" CornerRadius="5" TextColor="White" 
+                            Text="Capacidad de &#x0a; Evaluacion" BackgroundColor="{Binding ColorButton4,Mode=TwoWay}"
+                            Command="{Binding SkillPress_4}"/>
+                    <Button Grid.Row="2" Grid.Column="1" CornerRadius="5" TextColor="White" 
+                            Text="Capacidad de &#x0a; Razonaminto" BackgroundColor="{Binding ColorButton5,Mode=TwoWay}"
+                            Command="{Binding SkillPress_5}"/>
+                    <Button Grid.Row="3" Grid.Column="0" CornerRadius="5" TextColor="White" 
+                            Text="Resolucion de &#x0a; Problemas" BackgroundColor="{Binding ColorButton6,Mode=TwoWay}"
+                            Command="{Binding SkillPress_6}"/>
+                    <Button Grid.Row="3" Grid.Column="1" CornerRadius="5" TextColor="White" 
+                            Text="Toma de &#x0a; Decisiones" BackgroundColor="{Binding ColorButton7 ,Mode=TwoWay}"
+                            Command="{Binding SkillPress_7}"/>
+                </Grid>
+                <Button  CornerRadius="3" TextColor="White" Text="Siguiente" 
+                            BackgroundColor="DarkGreen" Command="{Binding SaveCommand}"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTest03.Views.Preferences.PrefLearnPage"
+             xmlns:vm="clr-namespace:AppTest03.ViewModels">
+
+    <ContentPage.BindingContext>
+        <vm:PrefLearnPage_VM/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+            <Label Text="Iniciemos tu cuenta" FontSize="Medium"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" CornerRadius="5" TextColor="White" 
+                            Text="Graficos" BackgroundColor="{Binding ColorButton0,Mode=TwoWay}"
+                            Command="{Binding SkillPress_0}"/>
+                <Button Grid.Row="0" Grid.Column="1" CornerRadius="5" TextColor="White" 
+                            Text="Escuchar" BackgroundColor="{Binding ColorButton1,Mode=TwoWay}"
+                            Command="{Binding SkillPress_1}"/>
+                <Button Grid.Row="1" Grid.Column="0" CornerRadius="5" TextColor="White" 
+                            Text="Leer &#x0a; Escribir" BackgroundColor="{Binding ColorButton2,Mode=TwoWay}"
+                            Command="{Binding SkillPress_2}"/>
+                <Button Grid.Row="1" Grid.Column="1" CornerRadius="5" TextColor="White" 
+                            Text="Debatir" BackgroundColor="{Binding ColorButton3,Mode=TwoWay}"
+                            Command="{Binding SkillPress_3}"/>
+                <Button Grid.Row="2" Grid.Column="0" CornerRadius="5" TextColor="White" 
+                            Text="Practicar" BackgroundColor="{Binding ColorButton4,Mode=TwoWay}"
+                            Command="{Binding SkillPress_4}"/>
+                <Button Grid.Row="2" Grid.Column="1" CornerRadius="5" TextColor="White" 
+                            Text="Ejemplificar" BackgroundColor="{Binding ColorButton5,Mode=TwoWay}"
+                            Command="{Binding SkillPress_5}"/>
+                <Button Grid.Row="3" Grid.Column="0" CornerRadius="5" TextColor="White" 
+                            Text="Videos" BackgroundColor="{Binding ColorButton6,Mode=TwoWay}"
+                            Command="{Binding SkillPress_6}"/>
+                <Button Grid.Row="3" Grid.Column="1" CornerRadius="5" TextColor="White" 
+                            Text="Analizar" BackgroundColor="{Binding ColorButton7,Mode=TwoWay}"
+                            Command="{Binding SkillPress_7}"/>
+            </Grid>
+            <Button  CornerRadius="3" TextColor="White" Text="Siguiente" 
+                            BackgroundColor="LightGreen"  Command="{Binding SaveCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

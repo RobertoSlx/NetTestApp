@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTest03.Views.QuestionNewPage"
+			 xmlns:Local="clr-namespace:AppTest03.ViewModels"
+			 xmlns:model="clr-namespace:AppTest03.Models">
+
+	<ContentPage.BindingContext>
+		<Local:QuestionNewPage_VM/>
+	</ContentPage.BindingContext>
+
+	<ContentPage.Resources>
+		<Style TargetType="Grid">
+			<Setter Property="VisualStateManager.VisualStateGroups">
+				<VisualStateGroupList>
+					<VisualStateGroup x:Name="CommonStates">
+						<VisualState x:Name="Normal" />
+						<VisualState x:Name="Selected">
+							<VisualState.Setters>
+								<Setter Property="BackgroundColor"
+                                        Value="White" />
+							</VisualState.Setters>
+						</VisualState>
+					</VisualStateGroup>
+				</VisualStateGroupList>
+			</Setter>
+		</Style>
+	</ContentPage.Resources>
+
+	<ContentPage.Content>
+		<ScrollView HeightRequest="3000">
+			<StackLayout FlexLayout.AlignSelf="Auto">
+				
+				<StackLayout x:Name="AsignTab">
+					
+					<Grid HeightRequest="50" BackgroundColor="LightGreen">
+
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width=".7*"/>
+							<ColumnDefinition Width=".3*"/>
+						</Grid.ColumnDefinitions> 
+						
+						<Label	Grid.Column="0" Text="{Binding AsignStr}" 
+								FontSize="Title" 
+								VerticalOptions="CenterAndExpand" 
+								HorizontalOptions="Start"
+								/>
+
+						<Image	Grid.Column="1" Source="{Binding ImageStr}"/>
+					</Grid>
+
+					<StackLayout.GestureRecognizers>
+						<TapGestureRecognizer	NumberOfTapsRequired="1"
+												Command="{Binding ToggleOpt}"		
+												CommandParameter="1">
+						</TapGestureRecognizer>
+					</StackLayout.GestureRecognizers>
+				</StackLayout>
+
+				<CollectionView x:Name="SelectAsign"
+				ItemsSource="{Binding MaterList}"
+				HeightRequest="300"
+				SelectedItem="{Binding AssSelected, Mode=TwoWay}"
+				FlexLayout.AlignSelf="Auto"
+                SelectionMode="Single"
+				IsVisible="{Binding AssEnable}">
+
+					<CollectionView.ItemsLayout>
+						<GridItemsLayout Orientation="Vertical"
+                        Span="2"
+                        VerticalItemSpacing="0"
+                        HorizontalItemSpacing="0" />
+					</CollectionView.ItemsLayout>
+
+					<CollectionView.ItemTemplate>
+						<DataTemplate>
+							<StackLayout Padding="10" x:DataType="Local:AssList" >
+								<Grid BackgroundColor="LightBlue">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width=".8*"/>
+										<ColumnDefinition Width=".2*"/>
+									</Grid.ColumnDefinitions>
+									<Grid.RowDefinitions>
+										<RowDefinition Height="25"/>
+									</Grid.RowDefinitions>
+
+									<Label	Grid.Row="0" Grid.Column="0" 
+									Text="{Binding materia}" 
+									LineBreakMode="NoWrap" 
+									Style="{DynamicResource ListItemTextStyle}" 
+									FontSize="Small" 
+									VerticalOptions="CenterAndExpand"
+									HorizontalOptions="CenterAndExpand"/>
+									<Image Grid.Row="0" Grid.Column="1"
+									   Source="{Binding imagen}"/>
+								</Grid>
+							</StackLayout>
+						</DataTemplate>
+					</CollectionView.ItemTemplate>
+				</CollectionView>
+
+				<StackLayout x:Name="BodyTab">
+					<Grid HeightRequest="50" BackgroundColor="GreenYellow">
+
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width=".7*"/>
+							<ColumnDefinition Width=".3*"/>
+						</Grid.ColumnDefinitions>
+
+						<Label	Grid.Column="0" Text="Tu pregunta " 
+								FontSize="Large" 
+								VerticalOptions="CenterAndExpand" 
+								HorizontalOptions="StartAndExpand"
+								/>
+					</Grid>
+
+					<StackLayout.GestureRecognizers>
+						<TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding ToggleOpt}"		
+                                CommandParameter="2">
+						</TapGestureRecognizer>
+					</StackLayout.GestureRecognizers>
+				</StackLayout>
+
+				<StackLayout x:Name="Question" 
+							 FlexLayout.AlignSelf="Auto" 
+							 IsVisible="{Binding TextEnable}">
+					
+					<Label	Text="Titulo" TextColor="Black" FontSize="Medium"/>
+					<Editor	Text="{Binding TitleString}" FontSize="Title"
+							HorizontalOptions="FillAndExpand"
+							AutoSize="TextChanges"/>
+					<Label	Text="Pregunta"/>
+					<Editor	Text="{Binding BodyString}" FontSize="Medium"
+							HorizontalOptions="FillAndExpand"
+							VerticalOptions = "Start" 
+							AutoSize="TextChanges"/>
+					
+				</StackLayout>
+
+				<StackLayout x:Name="TagTab">
+					<Grid HeightRequest="50" BackgroundColor="LawnGreen">
+
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width=".7*"/>
+							<ColumnDefinition Width=".3*"/>
+						</Grid.ColumnDefinitions>
+
+						<Label	Grid.Column="0" Text="Selecciona Tags" 
+								FontSize="Large" 
+								VerticalOptions="CenterAndExpand" 
+								HorizontalOptions="StartAndExpand"
+								/>
+					</Grid>
+
+					<StackLayout.GestureRecognizers>
+						<TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding ToggleOpt}"		
+                                CommandParameter="3">
+						</TapGestureRecognizer>
+					</StackLayout.GestureRecognizers>
+				</StackLayout>
+
+				<StackLayout x:Name="Tags"
+							 IsVisible="{Binding TagEnable}">
+					
+					<CollectionView x:Name="SelectedTags"
+										ItemsSource="{Binding SelectedTags}"
+										HeightRequest="{Binding Hreq}"
+										SelectedItem="{Binding SelectedSelected, Mode=TwoWay}"
+										FlexLayout.AlignSelf="Auto"
+										SelectionMode="Single">
+
+						<CollectionView.ItemsLayout>
+							<GridItemsLayout Orientation="Vertical"
+											Span="2"
+											VerticalItemSpacing="5"
+											HorizontalItemSpacing="5" />
+						</CollectionView.ItemsLayout>
+
+						<CollectionView.ItemTemplate>
+							<DataTemplate>
+								<StackLayout Padding="10" x:DataType="model:TagList" >
+									<Grid BackgroundColor="{Binding BgColor}">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width=".8*"/>
+											<ColumnDefinition Width=".2*"/>
+										</Grid.ColumnDefinitions>
+										<Grid.RowDefinitions>
+											<RowDefinition Height="30"/>
+										</Grid.RowDefinitions>
+
+										<Label	Grid.Row="0" Grid.Column="0" 
+													Text="{Binding tag}" 
+													LineBreakMode="NoWrap" 
+													Style="{DynamicResource ListItemTextStyle}" 
+													FontSize="Small" 
+													VerticalOptions="CenterAndExpand"
+													HorizontalOptions="CenterAndExpand"/>
+
+										<Button Grid.Row="0" 
+													Grid.Column="1" 
+													FontSize="Small"
+													VerticalOptions="CenterAndExpand"
+													Text="X" 
+													BackgroundColor="Green" 
+													Command="{Binding Source={RelativeSource AncestorType={x:Type Local:QuestionNewPage_VM}},Path = SelectedRemove}"  
+													CommandParameter="{Binding .}"/>
+									</Grid>
+								</StackLayout>
+							</DataTemplate>
+						</CollectionView.ItemTemplate>
+					</CollectionView>
+
+					<CollectionView x:Name="ListedTags"
+									ItemsSource="{Binding ListedTags}"
+									SelectedItem="{Binding SelectedListed, Mode=TwoWay}"
+									SelectionMode="Single"
+									HeightRequest="300">
+
+						<CollectionView.ItemTemplate>
+							<DataTemplate>
+								<StackLayout Padding="10" x:DataType="model:TagList" >
+									<Grid	HeightRequest="{Binding CellH}" 
+											BackgroundColor="{Binding BgColor}">
+
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width=".8*"/>
+											<ColumnDefinition Width=".2*"/>
+										</Grid.ColumnDefinitions>
+										<Grid.RowDefinitions>
+											<RowDefinition Height="20"/>
+											<RowDefinition Height="20"/>
+										</Grid.RowDefinitions>
+
+										<Label	Grid.Column="0" Grid.Row="0" Text="{Binding tag}" 
+												LineBreakMode="NoWrap" 
+												Style="{DynamicResource ListItemTextStyle}" 
+												FontSize="16" 
+												VerticalOptions="CenterAndExpand"
+												Padding="5,0"/>
+
+										<Label	Grid.Row="1" Grid.Column="0" 
+												BackgroundColor="White" 
+												Text="{Binding descripcion}" 
+												Padding="5,0"
+												LineBreakMode="NoWrap"
+												Style="{DynamicResource ListItemDetailTextStyle}"
+												FontSize="13"
+												IsVisible="{Binding tapped}" 
+												VerticalOptions="CenterAndExpand"/>
+
+										<Button Grid.Column="1" Grid.RowSpan="2" Text="X" 
+												Command="{Binding Source={RelativeSource AncestorType={x:Type Local:QuestionNewPage_VM}},Path = AddItemTapp}"  
+												CommandParameter="{Binding .}" IsVisible="{Binding tapped}"/>
+									</Grid>
+								</StackLayout>
+							</DataTemplate>
+						</CollectionView.ItemTemplate>
+					</CollectionView>
+					
+				</StackLayout>
+				
+				<StackLayout Orientation="Horizontal" VerticalOptions="End">
+							<Button CornerRadius="3" TextColor="White" Text="Siguiente" BackgroundColor="DarkGreen" Command="{Binding PubQuestion}"
+									VerticalOptions="CenterAndExpand" Padding="20,0" HorizontalOptions="CenterAndExpand"/>
+				</StackLayout>
+				
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

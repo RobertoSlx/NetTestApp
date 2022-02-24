@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ViewModels="clr-namespace:AppTest03.ViewModels"
+             x:Class="AppTest03.Views.LoginPage"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.BindingContext>
+        <ViewModels:LoginPage_VM/> 
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+		<StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+			<Image Source="tree.jpg"/>
+            <Label Text="Bienvenido a la App"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+			
+            <Button x:Name="ButtonLoginRegister" 
+					Text="Loggin or Sign up" 
+					Command="{Binding LoginEmail}"
+					Padding="10"
+					CornerRadius="5"
+					Margin="0,3"/>
+			
+            <ImageButton Source="FaceButt_B.png" 
+						 x:Name="ButtonLoginFacebook" 
+						 BackgroundColor="DeepSkyBlue" 
+						 Command="{Binding LoginFacebook}"
+						 Margin="0,3"
+						 CornerRadius="5"/>
+			
+            <ImageButton Source="GoogButt.png" 
+						 x:Name="ButtonLoginGoogle" 
+						 BackgroundColor="LightGray" 
+						 Command="{Binding LoginGoogle}"
+						 Margin="0,3"
+						 CornerRadius="5"/>
+         </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

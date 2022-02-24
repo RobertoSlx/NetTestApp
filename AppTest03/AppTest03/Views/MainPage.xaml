@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTest03.Views.MainPage"
+			 xmlns:vm="clr-namespace:AppTest03.ViewModels"
+			 xmlns:model="clr-namespace:AppTest03.Models"
+			 Shell.FlyoutBehavior="Flyout"
+             Shell.NavBarIsVisible="True"
+			 Shell.TabBarUnselectedColor="LightGreen">
+
+	<ContentPage.BindingContext>
+		<vm:MainPage_VM />
+	</ContentPage.BindingContext>
+
+	<ContentPage.Content>
+		<StackLayout>
+			<RefreshView x:DataType="vm:MainPage_VM"
+						 Command="{Binding LoadItemsCommand}"
+						 IsRefreshing="{Binding IsBusy,Mode=TwoWay}">
+
+				<CollectionView ItemsSource="{Binding recentPosts}"
+								VerticalOptions="FillAndExpand"
+								SelectedItem="{Binding Selected, Mode=TwoWay}"
+								SelectionMode="Single">
+
+					<CollectionView.ItemTemplate>
+						<DataTemplate>
+							<StackLayout Padding="5" x:DataType="model:PostList" FlexLayout.AlignSelf="Center">
+
+								<Frame Padding="5" CornerRadius="5"
+									   IsClippedToBounds="True"
+									   BorderColor="{Binding postColor}">
+
+									<Grid HeightRequest="70">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width=".7*"/>
+											<ColumnDefinition Width=".3*"/>
+										</Grid.ColumnDefinitions>
+										<Grid.RowDefinitions>
+											<RowDefinition Height="70"/>
+										</Grid.RowDefinitions>
+
+										<Label	Grid.Column="0" Grid.Row="0" Text="{Binding postText}"
+												LineBreakMode="WordWrap" FontSize="14" VerticalOptions="CenterAndExpand"/>
+										<Image Grid.Column="1" Grid.Row="0" Source="{Binding postImage}"/>
+									</Grid>
+								</Frame>
+							</StackLayout>
+						</DataTemplate>
+					</CollectionView.ItemTemplate>
+				</CollectionView>
+			</RefreshView>
+			<StackLayout Orientation="Horizontal" VerticalOptions="End" HorizontalOptions="FillAndExpand">
+				<Button CornerRadius="3" TextColor="White" Text="Pregunta algo" HorizontalOptions="FillAndExpand"
+						BackgroundColor="Green" Command="{Binding NuevaPregunta}"
+					VerticalOptions="Center"
+					Padding="20,0"/>
+			</StackLayout>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

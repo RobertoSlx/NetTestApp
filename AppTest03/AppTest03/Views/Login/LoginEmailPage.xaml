@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTest03.Views.Login.LoginEmailPage"
+             xmlns:vm="clr-namespace:AppTest03.ViewModels">
+
+    <ContentPage.BindingContext>
+        <vm:LoginEmailPage_VM />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Padding="40" 
+					 VerticalOptions="Center" 
+					 HorizontalOptions="FillAndExpand">
+			
+            <Image Source="tree.jpg"/>
+			
+            <Label Text="Inicia o crea una cuenta" 
+				   HorizontalOptions="Center" 
+				   VerticalOptions="Center"
+				   FontSize="Medium"
+				   Margin="0,5,0,20"/>
+			
+            <Label Text="Usuario"/>
+			
+            <Entry Text="{Binding Email, Mode=TwoWay}" 
+				   Keyboard="Email"
+				   Placeholder="Email Registrado"/>
+			
+            <Label Text="Contraseña"/>
+			
+            <Entry IsPassword="True" 
+				   Text="{Binding Password, Mode=TwoWay}" 
+				   Keyboard="Text"/>
+			
+            <Button Text="Iniciar" 
+					x:Name="ButtLogin" 
+					Command="{Binding SaveCommand}"/>
+			
+            <Label Text="Nuevo Usuario ?" 
+				   HorizontalOptions="Center" 
+				   FontSize="Medium" 
+				   Padding="10">
+                
+				<Label.GestureRecognizers>
+					<TapGestureRecognizer Command="{Binding RegisterEmail}"/>
+				</Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
